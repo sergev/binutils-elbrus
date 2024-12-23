@@ -167,6 +167,11 @@
 /* Define as const if the declaration of iconv() needs const. */
 #undef ICONV_CONST
 
+/* Inhibit --show-raw-insn option. */
+#undef INHIBIT_RAW_INSN
+
+#undef E2K_QUIRKS
+
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
 #undef LT_OBJDIR

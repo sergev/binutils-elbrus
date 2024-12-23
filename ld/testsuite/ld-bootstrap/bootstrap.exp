@@ -25,9 +25,9 @@
 # Make sure that ld can bootstrap itself.
 
 # This test can only be run if ld generates native executables.
-if ![isnative] {
-    return
-}
+# if ![isnative] {
+#     return
+# }
 
 # Skip for -fprofile-generate=.
 catch "exec $nm $plug_opt $OFILES" exec_output

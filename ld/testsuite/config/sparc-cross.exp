@@ -1,0 +1,54 @@
+#  Copyright (c) 2009-2024 AO MCST.
+#  Copyright (C) 2009-2024 Free Software Foundation, Inc.
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>
+
+load_file $srcdir/config/default.exp
+
+proc sparc${mode}-cross_init { dummy } {
+
+ global mode
+
+ global CC HOSTING_EMU AS LD as ld
+ global orig_CC orig_HOSTING_EMU orig_AS orig_LD orig_as orig_ld
+
+ set orig_CC "$CC"
+ set orig_HOSTING_EMU "$HOSTING_EMU"
+ set orig_AS "$AS"
+ set orig_LD "$LD"
+ set orig_as "$as"
+ set orig_ld "$ld"
+
+ set CC "$CC -m${mode}"
+ set HOSTING_EMU "-m elf${mode}_sparc"
+ set AS "$AS -${mode}"
+ set LD "$LD -melf${mode}_sparc"
+ set as "$as -${mode}"
+ set ld "$ld -melf${mode}_sparc"
+}
+
+proc sparc${mode}-cross_exit { } {
+
+ global mode
+
+ global CC HOSTING_EMU AS LD as ld
+ global orig_CC orig_HOSTING_EMU orig_AS orig_LD orig_as orig_ld
+
+ set CC "$orig_CC"
+ set HOSTING_EMU "$orig_HOSTING_EMU"
+ set AS "$orig_AS"
+ set LD "$orig_LD"
+ set as "$orig_as"
+ set ld "$orig_ld"
+}

@@ -325,3 +325,6 @@
 
 /* Define to 1 if you need to in order for `stat' and other things to work. */
 #undef _POSIX_SOURCE
+
+/* Define if the fix for LCC Bug #142105 is enabled.  */
+#undef ENABLE_FIX_LCC_BUG_142105
